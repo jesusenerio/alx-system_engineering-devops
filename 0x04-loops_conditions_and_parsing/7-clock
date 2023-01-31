@@ -10,4 +10,4 @@ while [[ "$hour" -lt 13 ]]; do
 	done
 	min=1
 	((hour++))
-done | head -70 
+done
