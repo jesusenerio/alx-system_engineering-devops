@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This display a dorectory in list
+for file in *; do
+	if [ "${file:0:1}" != "." ]; then
+		name_after_dash="${file##*-}"
+		echo "$name_after_dash"
+	fi
+done
