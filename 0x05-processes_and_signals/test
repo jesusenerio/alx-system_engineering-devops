@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# This is a process
+
+# Define a function to display the process information
+display_process() {
+  # Get the process information
+  pid=$1
+  ppid=$(ps -o ppid= -p $pid)
+  user=$(ps -o user= -p $pid)
+  cmd=$(ps -o cmd= -p $pid)
+  cpu=$(ps -o %cpu= -p $pid)
+  mem=$(ps -o %mem= -p $pid)
+  stat=$(ps -o stat= -p $pid)
+  start=$(ps -o start= -p $pid)
+  vsz=$(ps -o vsz= -p $pid)
+  rss=$(ps -o rss= -p $pid)
+  time=$(ps -o time= -p $pid)
+
+  # Display the process information in a user-oriented format
+  echo "PID: $pid"
+  echo "PPID: $ppid"
+  echo "User: $user"
+  echo "Command: $cmd"
+  echo "CPU%: $cpu"
+  echo "Memory%: $mem"
+  echo "Stat: $stat"
+  echo "Start Time: $start"
+  echo "Virtual Memory (VSZ): $vsz"
+  echo "Resident Set Size (RSS): $rss"
+  echo "Total CPU Time: $time"
+  echo ""
+}
+
+# Get the list of all processes, for all users, including those which might not have a TTY
+pids=$(ps -eo pid=)
+
+# Display the process hierarchy
+for pid in $pids; do
+  display_process $pid
+done
+
