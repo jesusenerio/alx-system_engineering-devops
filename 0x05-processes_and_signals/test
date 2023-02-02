@@ -38,4 +38,3 @@ pids=$(ps -eo pid=)
 for pid in $pids; do
   display_process $pid
 done
-

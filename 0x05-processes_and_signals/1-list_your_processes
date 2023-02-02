@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This is a listed process
-processes=$(ps -aux | less)
+processes=$(ps -aux )
 while read -r line; do
 	echo "$line"
 done <<< "$processes"

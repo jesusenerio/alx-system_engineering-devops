@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# this list all process in the system
+# shellcheck diaable=SC2009
+ps -ef | awk '/bash/ && !/awk/{print$2}'
